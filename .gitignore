@@ -41,3 +41,6 @@ man/*
 
 # Cache Packages
 packages/*
+
+# Misc
+.DS_Store
