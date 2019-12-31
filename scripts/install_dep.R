@@ -8,4 +8,4 @@ for ( idx in seq_len(nrow(pkgs_version_DT)) ) {
     )
 }
 
-install.packages(c("mlbench"))
+install.packages(c("mlbench", "rsample"))
