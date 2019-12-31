@@ -1,5 +1,5 @@
 # GLOBAL VARIABLE
-PKG_GLOBAL_ENV <- new.env()
+PKG_GLOBAL_ENV <- new.env(parent = emptyenv())
 
 # reference: https://www.soa.org/globalassets/assets/files/edu/2019/2019-12-exam-pa-syllabus.pdf
 PKG_GLOBAL_ENV$PA_PKGS <- c(
@@ -20,4 +20,4 @@ PKG_GLOBAL_ENV$PA_PKGS <- c(
 PKG_GLOBAL_ENV$PKG_FREEZE_DATE <- "2019-12-01"
 
 # data.table "no visible binding" R CMD check issue
-globalVariables(c(".", "package", "version", "date", "available"))
+utils::globalVariables(c(".", "package", "version", "date", "available"))

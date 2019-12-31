@@ -23,8 +23,8 @@
 #'     path_to_dir = file.path(getwd(), "packages")
 #' )
 download_pkgs <- function(
-    pkgs = PAdocs::PKG_GLOBAL_ENV$PA_PKGS,
-    as_of_date = PAdocs::PKG_GLOBAL_ENV$PKG_FREEZE_DATE,
+    pkgs = PKG_GLOBAL_ENV$PA_PKGS,
+    as_of_date = PKG_GLOBAL_ENV$PKG_FREEZE_DATE,
     path_to_dir = tempdir(check = TRUE),
     verbose = TRUE
 ) {
@@ -88,15 +88,15 @@ download_pkgs <- function(
                     ))
                     # unzip
                     utils::unzip(save_to_file, exdir = path_to_dir)
-                    # remove docs directory if exists
-                    unlink(
-                        file.path(
-                            path_to_dir,
-                            sprintf("%s-%s", pkg, pkg_version),
-                            "docs"
-                        ),
-                        recursive = TRUE
-                    )
+                    # # remove docs directory if exists
+                    # unlink(
+                    #     file.path(
+                    #         path_to_dir,
+                    #         sprintf("%s-%s", pkg, pkg_version),
+                    #         "docs"
+                    #     ),
+                    #     recursive = TRUE
+                    # )
                     # append to return vector
                     downloaded_pkgs[idx] <- sprintf("%s-%s", pkg, pkg_version)
                 }

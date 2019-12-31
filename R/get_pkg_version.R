@@ -24,8 +24,8 @@
 #'     as_of_date = "2019-01-01"
 #' )
 get_pkg_version <- function(
-    pkgs = PAdocs::PKG_GLOBAL_ENV$PA_PKGS,
-    as_of_date = PAdocs::PKG_GLOBAL_ENV$PKG_FREEZE_DATE
+    pkgs = PKG_GLOBAL_ENV$PA_PKGS,
+    as_of_date = PKG_GLOBAL_ENV$PKG_FREEZE_DATE
 ) {
     # get package available versions
     #   returns a list of equal length as pkgs
