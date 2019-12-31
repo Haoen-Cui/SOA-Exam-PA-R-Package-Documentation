@@ -5,7 +5,7 @@
 #'     Could take a while to run if input `pkgs` contains multiple packages.
 #' @author Haoen Cui
 #'
-#' @importFrom utils download.file unzip
+#' @importFrom utils download.file untar
 #'
 #' @inheritParams get_pkg_version
 #' @param path_to_dir (character, to be used as path to file system)
@@ -53,8 +53,8 @@ download_pkgs <- function(
         )
     ))
     for ( idx in seq_len(nrow(pkgs_version_DT)) ) {
-        # try two different URL extensions
-        for ( sub_url in c("releases/tag", "archive") ) {
+        # try either current version or archived version
+        for ( sub_url in c("src/contrib", "src/contrib/Archive") ) {
             possible_err <- tryCatch({
                 # package info
                 pkg <- as.character(pkgs_version_DT[idx, package])
@@ -62,13 +62,14 @@ download_pkgs <- function(
                 # construct URLs
                 download_url <-
                     sprintf(
-                        "https://github.com/cran/%s/%s/%s.zip",
-                        pkg, sub_url, pkg_version
+                        "%s/%s/%s/%s_%s.tar.gz",
+                        versions:::latest.MRAN(), # TODO: not to use :::
+                        sub_url, pkg, pkg, pkg_version
                     )
                 # construct local file path
                 save_to_file <- file.path(
                     path_to_dir,
-                    sprintf("%s-%s.zip", pkg, pkg_version)
+                    sprintf("%s-%s.tar.gz", pkg, pkg_version)
                 )
                 # download file
                 if (verbose) message(sprintf(
@@ -80,23 +81,14 @@ download_pkgs <- function(
                         url = download_url, destfile = save_to_file
                     )
                 )
-                # unzip file
+                # un-compress file
                 if ( file.exists(save_to_file) ) {
                     if (verbose) message(sprintf(
                         "Unzipping package %s in directory %s",
                         save_to_file, path_to_dir
                     ))
-                    # unzip
-                    utils::unzip(save_to_file, exdir = path_to_dir)
-                    # # remove docs directory if exists
-                    # unlink(
-                    #     file.path(
-                    #         path_to_dir,
-                    #         sprintf("%s-%s", pkg, pkg_version),
-                    #         "docs"
-                    #     ),
-                    #     recursive = TRUE
-                    # )
+                    # untar
+                    utils::untar(save_to_file, exdir = path_to_dir)
                     # append to return vector
                     downloaded_pkgs[idx] <- sprintf("%s-%s", pkg, pkg_version)
                 }
