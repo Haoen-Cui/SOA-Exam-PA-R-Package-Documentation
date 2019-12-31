@@ -17,13 +17,13 @@ env:
     - R_CHECK_ARGS="--no-build-vignettes --no-manual"
 
 # update documentation and build site
-script:
+after_success:
   - Rscript -e 'devtools::document()'
   - Rscript -e 'devtools::install()'
   - Rscript -e 'devtools::load_all()'
   - Rscript scripts/install_dep.R
-  - Rscript -e 'PAdocs::download_pkgs(path_to_dir = "./packages")'
-  - Rscript -e 'PAdocs::build_site(path_to_dir = "./packages")'
+  - Rscript -e 'PAdocs::download_pkgs(path_to_dir = file.path(getwd(), "packages"))'
+  - Rscript -e 'PAdocs::build_site(path_to_dir = file.path(getwd(), "packages"))'
 
 # deploy to gh-pages branch
 deploy:
