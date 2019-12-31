@@ -26,24 +26,49 @@ build_site <- function(path_to_dir, base_path = getwd(), ...) {
         recursive = FALSE
     )
 
-    # construct package menu
+    # helper function
     extract_pkg_name <- function(pkg_dir) {
         return(strsplit(pkg_dir, split = "-")[[1]][1])
     }
-    pkg_menu <- lapply(pkg_dirs, function(pkg_dir) list(
-        text = extract_pkg_name(pkg_dir),
-        href = sprintf("../%s/index.html", extract_pkg_name(pkg_dir))
-    ))
 
-    # build site
+    # build PAdocs
+    navbar <- PKG_GLOBAL_ENV$PKGDOWN_OVERRIDE_NAVBAR
+    navbar[["components"]][["packages"]][["menu"]] <- lapply(
+        pkg_dirs,
+        function(pkg_dir) {
+            return(list(
+                text = extract_pkg_name(pkg_dir),
+                href = sprintf("./%s/index.html", extract_pkg_name(pkg_dir))
+            ))
+        })
+
+    possible_err <- tryCatch({
+        pkgdown::build_site(
+            pkg = base_path,
+            override = list(
+                destination = file.path(base_path, "docs"),
+                navbar = navbar
+            ),
+            ...
+        )
+    }, error = function(e) invisible(NULL))
+
+    # build other
     pkg_paths  <- file.path(path_to_dir, pkg_dirs)
     dest_paths <- file.path(
         base_path,
         "docs",
         sapply(pkg_dirs, extract_pkg_name)
     )
-    pkg_paths  <- c(pkg_paths, base_path)
-    dest_paths <- c(dest_paths, file.path(base_path, "docs"))
+    navbar <- PKG_GLOBAL_ENV$PKGDOWN_OVERRIDE_NAVBAR
+    navbar[["components"]][["packages"]][["menu"]] <- lapply(
+        pkg_dirs,
+        function(pkg_dir) {
+            return(list(
+                text = extract_pkg_name(pkg_dir),
+                href = sprintf("../%s/index.html", extract_pkg_name(pkg_dir))
+            ))
+        })
 
     for ( idx in seq_along(pkg_paths) ) {
         possible_err <- tryCatch({
@@ -51,26 +76,7 @@ build_site <- function(path_to_dir, base_path = getwd(), ...) {
                 pkg = pkg_paths[idx],
                 override = list(
                     destination = dest_paths[idx],
-                    navbar = list(
-                        structure = list(
-                            left = c(
-                                "home",
-                                "packages",
-                                "intro",
-                                "reference",
-                                "articles",
-                                "tutorials"
-                            ),
-                            right = c("github")
-                        ),
-                        components = list(
-                            packages = list(
-                                text = "R Packages",
-                                icon = "fas fa-archive fa-lg",
-                                menu = pkg_menu
-                            )
-                        )
-                    )
+                    navbar = navbar
                 ),
                 ...
             )

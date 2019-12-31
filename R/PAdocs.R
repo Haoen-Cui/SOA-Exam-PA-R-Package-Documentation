@@ -19,5 +19,32 @@ PKG_GLOBAL_ENV$PA_PKGS <- c(
 
 PKG_GLOBAL_ENV$PKG_FREEZE_DATE <- "2019-12-01"
 
+# pkgdown override navbar
+PKG_GLOBAL_ENV$PKGDOWN_OVERRIDE_NAVBAR <- list(
+    structure = list(
+        left = c(
+            "home",
+            "packages",
+            "intro",
+            "reference",
+            "articles",
+            "tutorials"
+        ),
+        right = c("github")
+    ),
+    components = list(
+        packages = list(
+            text = "R Packages",
+            icon = "fas fa-archive fa-lg",
+            menu = list(
+                list(
+                    text = "",
+                    href = ""
+                )
+            )
+        )
+    )
+)
+
 # data.table "no visible binding" R CMD check issue
 utils::globalVariables(c(".", "package", "version", "date", "available"))
