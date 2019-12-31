@@ -36,14 +36,13 @@ This repo contains an `R` package named `PAdocs` which finds the appropriate ver
 20: randomForest   4.6-14 2018-03-25
 21:        rpart   4.1-15 2019-04-12
 22:   rpart.plot    3.0.8 2019-08-22
-23:      ggplot2    3.2.1 2019-08-10
-25:        tidyr    1.0.0 2019-09-11
-26:        readr    1.3.1 2018-12-21
-27:        purrr    0.3.3 2019-10-18
-28:       tibble    2.1.3 2019-06-06
-29:      stringr    1.4.0 2019-02-10
-30:      forcats    0.4.0 2019-02-17
-31:      xgboost 0.90.0.2 2019-08-01
+23:        tidyr    1.0.0 2019-09-11
+24:        readr    1.3.1 2018-12-21
+25:        purrr    0.3.3 2019-10-18
+26:       tibble    2.1.3 2019-06-06
+27:      stringr    1.4.0 2019-02-10
+28:      forcats    0.4.0 2019-02-17
+29:      xgboost 0.90.0.2 2019-08-01
 ```
 We fetch the packages from the [CRAN mirror on GitHub](https://github.com/cran) and then build documentations using [`pkgdown`](https://pkgdown.r-lib.org/index.html). 
 
