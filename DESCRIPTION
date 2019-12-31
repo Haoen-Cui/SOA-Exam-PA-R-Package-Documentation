@@ -1,6 +1,6 @@
 Package: PAdocs
 Title: Generate Documentation Site for R Packages Required by SOA Exam PA 
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: as.person(c(
     "Haoen Cui <cuihaoen.opensource@gmail.com> [aut, cre]"
   ))
