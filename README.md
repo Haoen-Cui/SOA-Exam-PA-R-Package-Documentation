@@ -1,18 +1,15 @@
 [![Build Status](https://travis-ci.org/Haoen-Cui/SOA-Exam-PA-R-Package-Documentation.svg?branch=master)](https://travis-ci.org/Haoen-Cui/SOA-Exam-PA-R-Package-Documentation)
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/haoen-cui/SOA-Exam-PA-R-Package-Documentation" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true" aria-label="Star haoen-cui/SOA-Exam-PA-R-Package-Documentation on GitHub">Star</a>
+[![Star](https://githubbadges.com/star.svg?user=haoen-cui&repo=SOA-Exam-PA-R-Package-Documentation)](https://github.com/haoen-cui/SOA-Exam-PA-R-Package-Documentation)
 
 # SOA Exam PA - `R` Package Documentation
 
-This project is to generate a website hosting `R` package documentations for the [SOA PA Exam](https://www.soa.org/education/exam-req/edu-exam-pa-detail/).
+This project is to generate a website hosting `R` package documentations for the [SOA Exam PA: Predictive Analytics](https://www.soa.org/education/exam-req/edu-exam-pa-detail/).
 
 - Please visit the [GitHub Page](https://haoen-cui.github.io/SOA-Exam-PA-R-Package-Documentation/) for documentations
 - Please consider starring this repo if you find it helpful
 - Please raise an [issue](https://github.com/Haoen-Cui/SOA-Exam-PA-R-Package-Documentation/issues) if you have any suggestions, comments, and concerns
 
-# Development Log
+# Development Logs
 
 This repo contains an `R` package named `PAdocs` which finds the appropriate versions of the `R` packages given date of syllabus update
 ```
