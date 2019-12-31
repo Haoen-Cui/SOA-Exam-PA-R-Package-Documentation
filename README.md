@@ -4,7 +4,7 @@
 
 This project is to generate a website hosting `R` package documentations for the [SOA PA Exam](https://www.soa.org/education/exam-req/edu-exam-pa-detail/). 
 
-- Please visit the [GitHub Page](https://haoen-cui.github.io/SOA-Exam-PA-R-Package-Documentation/caret/index.html) for documentations
+- Please visit the [GitHub Page](https://haoen-cui.github.io/SOA-Exam-PA-R-Package-Documentation/) for documentations
 - Please consider starring this repo if you find it helpful 
 - Please raise an [issue](https://github.com/Haoen-Cui/SOA-Exam-PA-R-Package-Documentation/issues) if you have any suggestions, comments, and concerns 
 
@@ -37,7 +37,6 @@ This repo contains an `R` package named `PAdocs` which finds the appropriate ver
 21:        rpart   4.1-15 2019-04-12
 22:   rpart.plot    3.0.8 2019-08-22
 23:      ggplot2    3.2.1 2019-08-10
-24:        dplyr    0.8.3 2019-07-04
 25:        tidyr    1.0.0 2019-09-11
 26:        readr    1.3.1 2018-12-21
 27:        purrr    0.3.3 2019-10-18
