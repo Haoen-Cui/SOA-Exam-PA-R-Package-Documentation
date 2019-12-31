@@ -6,7 +6,7 @@
 This project is to generate a website hosting `R` package documentations for the [SOA Exam PA: Predictive Analytics](https://www.soa.org/education/exam-req/edu-exam-pa-detail/).
 
 - Please visit the [GitHub Page](https://haoen-cui.github.io/SOA-Exam-PA-R-Package-Documentation/) for documentations
-- Please consider starring this repo if you find it helpful
+- Please consider [starring this repo](https://github.com/Haoen-Cui/SOA-Exam-PA-R-Package-Documentation) if you find it helpful
 - Please raise an [issue](https://github.com/Haoen-Cui/SOA-Exam-PA-R-Package-Documentation/issues) if you have any suggestions, comments, and concerns
 
 # Development Logs
