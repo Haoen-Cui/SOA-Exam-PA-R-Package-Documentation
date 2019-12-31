@@ -44,34 +44,38 @@ build_site <- function(path_to_dir, base_path = getwd(), ...) {
     )
     pkg_paths  <- c(pkg_paths, base_path)
     dest_paths <- c(dest_paths, file.path(base_path, "docs"))
+
     for ( idx in seq_along(pkg_paths) ) {
-        pkgdown::build_site(
-            pkg = pkg_paths[idx],
-            override = list(
-                destination = dest_paths[idx],
-                navbar = list(
-                    structure = list(
-                        left = c(
-                            "home",
-                            "packages",
-                            "intro",
-                            "reference",
-                            "articles",
-                            "tutorials"
+        possible_err <- tryCatch({
+            pkgdown::build_site(
+                pkg = pkg_paths[idx],
+                override = list(
+                    destination = dest_paths[idx],
+                    navbar = list(
+                        structure = list(
+                            left = c(
+                                "home",
+                                "packages",
+                                "intro",
+                                "reference",
+                                "articles",
+                                "tutorials"
+                            ),
+                            right = c("github")
                         ),
-                        right = c("github")
-                    ),
-                    components = list(
-                        packages = list(
-                            text = "R Packages",
-                            icon = "fas fa-archive fa-lg",
-                            menu = pkg_menu
+                        components = list(
+                            packages = list(
+                                text = "R Packages",
+                                icon = "fas fa-archive fa-lg",
+                                menu = pkg_menu
+                            )
                         )
                     )
-                )
-            ),
-            ...
-        )
+                ),
+                ...
+            )
+        }, error = function(e) invisible(NULL))
+        if ( inherits(possible_err, "error") ) next
     }
 
     return( invisible(NULL) )
