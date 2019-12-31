@@ -7,3 +7,5 @@ for ( idx in seq_len(nrow(pkgs_version_DT)) ) {
         repos = "https://cran.rstudio.com/"
     )
 }
+
+install.packages(c("mlbench"))
