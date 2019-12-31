@@ -17,7 +17,7 @@ env:
     - R_CHECK_ARGS="--no-build-vignettes --no-manual"
 
 # update documentation and build site
-after_success:
+script:
   - Rscript -e 'devtools::document()'
   - Rscript -e 'devtools::install()'
   - Rscript -e 'devtools::load_all()'
@@ -30,7 +30,6 @@ deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_PAT
-  keep-history: true
   local-dir: docs
   on:
     branch: master
