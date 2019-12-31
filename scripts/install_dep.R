@@ -11,6 +11,14 @@ for ( idx in seq_len(nrow(pkgs_version_DT)) ) {
 
 # install additional dependencies for pkgdown website
 install.packages(c(
-    "mlbench", "rsample", "nycflights13", "hexbin",
-    "profvis", "lars", "import", "repurrrsive", "vcd"
+    "mlbench",
+    "rsample",
+    "nycflights13",
+    "hexbin",
+    "profvis",
+    "lars",
+    "import",
+    "repurrrsive",
+    "vcd",
+    "Lahman"
 ))
