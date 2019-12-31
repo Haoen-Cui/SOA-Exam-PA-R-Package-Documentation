@@ -1,0 +1,25 @@
+Package: PAdocs
+Title: Generate Documentation Site for R Packages Required by SOA Exam PA 
+Version: 0.0.1
+Authors@R: as.person(c(
+    "Haoen Cui <cuihaoen.opensource@gmail.com> [aut, cre]"
+  ))
+Description: This package contains helper functions to fetch and generate 
+    documentation for R packages required by SOA Exam PA. 
+Depends: R (>= 3.5.0) 
+Imports:
+    data.table, 
+    lubridate, 
+    pkgdown, 
+    versions
+Suggests:
+    devtools,
+    roxygen2, 
+    testthat, 
+    knitr 
+License: MIT + file LICENSE
+Encoding: UTF-8
+URL: https://haoen-cui.github.io/SOA-Exam-PA-R-Package-Documentation
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.2

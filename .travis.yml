@@ -1,0 +1,36 @@
+language: R
+
+# caches $HOME/R/Library, and sets R_LIB_USER=$HOME/R/Library environment variable.
+cache: packages
+
+# only clone most recent commit
+git:
+  depth: 1
+
+# ignore warnings
+warnings_are_errors: false
+
+# configure R CMD ... arguments
+env:
+  global:
+    - R_BUILD_ARGS="--no-build-vignettes --no-manual --no-resave-data"
+    - R_CHECK_ARGS="--no-build-vignettes --no-manual"
+
+# update documentation and build site
+after_success:
+  - Rscript -e 'devtools::document()'
+  - Rscript -e 'devtools::install()'
+  - Rscript -e 'devtools::load_all()'
+  - Rscript scripts/install_dep.R
+  - Rscript -e 'PAdocs::download_pkgs(path_to_dir = "./packages")'
+  - Rscript -e 'PAdocs::build_site(path_to_dir = "./packages")'
+
+# deploy to gh-pages branch
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_PAT
+  keep-history: true
+  local-dir: docs
+  on:
+    branch: master
