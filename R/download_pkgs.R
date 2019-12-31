@@ -53,18 +53,18 @@ download_pkgs <- function(
         )
     ))
     for ( idx in seq_len(nrow(pkgs_version_DT)) ) {
+        # package info
+        pkg <- as.character(pkgs_version_DT[idx, package])
+        pkg_version <- as.character(pkgs_version_DT[idx, version])
         # try either current version or archived version
-        for ( sub_url in c("src/contrib", "src/contrib/Archive") ) {
+        for ( sub_url in c("src/contrib", paste0("src/contrib/Archive/", pkg)) ) {
             possible_err <- tryCatch({
-                # package info
-                pkg <- as.character(pkgs_version_DT[idx, package])
-                pkg_version <- as.character(pkgs_version_DT[idx, version])
                 # construct URLs
                 download_url <-
                     sprintf(
-                        "%s/%s/%s/%s_%s.tar.gz",
+                        "%s/%s/%s_%s.tar.gz",
                         versions:::latest.MRAN(), # TODO: not to use :::
-                        sub_url, pkg, pkg, pkg_version
+                        sub_url, pkg, pkg_version
                     )
                 # construct local file path
                 save_to_file <- file.path(
