@@ -20,7 +20,7 @@
 #' download_pkgs(
 #'     pkgs = c("data.table", "knitr"),
 #'     as_of_date = "2019-01-01",
-#'     path_to_dir = file.path(getwd(), "packages")
+#'     path_to_dir = tempdir(check = TRUE)
 #' )
 download_pkgs <- function(
     pkgs = PKG_GLOBAL_ENV$PA_PKGS,
