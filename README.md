@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Haoen-Cui/SOA-Exam-PA-R-Package-Documentation.svg?branch=master)](https://travis-ci.org/Haoen-Cui/SOA-Exam-PA-R-Package-Documentation)
+
 # SOA Exam PA - `R` Package Documentation 
 
 This project is to generate a website hosting `R` package documentations for the [SOA PA Exam](https://www.soa.org/education/exam-req/edu-exam-pa-detail/). 
