@@ -32,6 +32,7 @@ get_pkg_version <- function(
     #   with each component as a data.frame
     #   containing columns (version, date, available)
     #   versions::available.versions will take a while to run
+    pkgs <- unique(pkgs)
     pkgs_version_ls <- versions::available.versions(pkgs = pkgs)
     pkgs_version_DT <- data.table::rbindlist(lapply(
         seq_along(pkgs_version_ls),
@@ -64,7 +65,7 @@ get_pkg_version <- function(
         as_of_date
     ))
 
-    return( pkgs_version_DT[, .(package, version, date)] )
+    return( unique(pkgs_version_DT[, .(package, version, date)]) )
 }
 
 
