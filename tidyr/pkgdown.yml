@@ -1,0 +1,10 @@
+pandoc: '2.2'
+pkgdown: 1.4.1
+pkgdown_sha: ~
+articles:
+  in-packages: in-packages.html
+  nest: nest.html
+  pivot: pivot.html
+  rectangle: rectangle.html
+  tidy-data: tidy-data.html
+

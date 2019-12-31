@@ -1,0 +1,8 @@
+pandoc: '2.2'
+pkgdown: 1.4.1
+pkgdown_sha: ~
+articles:
+  discoverYourData: discoverYourData.html
+  xgboostPresentation: xgboostPresentation.html
+  xgboostfromJSON: xgboostfromJSON.html
+

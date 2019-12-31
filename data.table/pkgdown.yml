@@ -1,0 +1,14 @@
+pandoc: '2.2'
+pkgdown: 1.4.1
+pkgdown_sha: ~
+articles:
+  datatable-benchmarking: datatable-benchmarking.html
+  datatable-faq: datatable-faq.html
+  datatable-importing: datatable-importing.html
+  datatable-intro: datatable-intro.html
+  datatable-keys-fast-subset: datatable-keys-fast-subset.html
+  datatable-reference-semantics: datatable-reference-semantics.html
+  datatable-reshape: datatable-reshape.html
+  datatable-sd-usage: datatable-sd-usage.html
+  datatable-secondary-indices-and-auto-indexing: datatable-secondary-indices-and-auto-indexing.html
+

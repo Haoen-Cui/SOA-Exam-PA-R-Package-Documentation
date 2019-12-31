@@ -1,0 +1,9 @@
+pandoc: '2.2'
+pkgdown: 1.4.1
+pkgdown_sha: ~
+articles:
+  arrangeGrob: arrangeGrob.html
+  gtable: gtable.html
+  ngonGrob: ngonGrob.html
+  tableGrob: tableGrob.html
+

@@ -1,0 +1,12 @@
+pandoc: '2.2'
+pkgdown: 1.4.1
+pkgdown_sha: ~
+articles:
+  adding-tidiers: adding-tidiers.html
+  available-methods: available-methods.html
+  bootstrapping: bootstrapping.html
+  broom: broom.html
+  broom_and_dplyr: broom_and_dplyr.html
+  glossary: glossary.html
+  kmeans: kmeans.html
+
